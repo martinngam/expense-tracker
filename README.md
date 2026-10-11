@@ -4,6 +4,10 @@ A mobile-friendly web app for several users. Each person signs in, takes a photo
 
 **Sheet columns:** Date | Pay To | Item | Amount | Category | User | Submitted At | Receipt (Drive link)
 
+<p align="center">
+  <img src="docs/screenshot.png" alt="Expense Tracker app: scan a receipt, check the extracted details, save to Google Sheet" width="360">
+</p>
+
 ## How scanning works
 1. The browser shrinks the photo to 1600px wide or less (JPEG), so uploads stay fast.
 2. Google Drive's built-in OCR turns the image into text. This is free and needs no extra key.
