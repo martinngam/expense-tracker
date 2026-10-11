@@ -225,12 +225,18 @@
     $('fDate').value = d.date || '';
     $('fPayTo').value = d.payTo || '';
     $('fItem').value = d.item || '';
-    $('fAmount').value = d.amount || '';
+    $('fAmount').value = Number(d.amount) > 0 ? Number(d.amount).toFixed(2) : '';
     $('fCategory').value = d.category || 'Others';
     msg('saveMsg');
     $('formCard').classList.remove('hidden');
     $('formCard').scrollIntoView({ behavior: 'smooth' });
   }
+
+  // Show typed amounts with 2 decimals too, e.g. 12.5 -> 12.50
+  $('fAmount').addEventListener('blur', () => {
+    const n = Number($('fAmount').value);
+    if ($('fAmount').value !== '' && n > 0) $('fAmount').value = n.toFixed(2);
+  });
 
   /* ---------- Save ---------- */
   $('expForm').addEventListener('submit', async ev => {
